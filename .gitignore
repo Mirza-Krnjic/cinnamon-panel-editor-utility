@@ -1,0 +1,27 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.tar.gz
+
+# Virtual Environment
+venv/
+
+# UI files
+*.ui
+
+# Test files
+tests/
+
+# IDEs
+.idea/
+.vscode/
+
+# OS
+.DS_Store
