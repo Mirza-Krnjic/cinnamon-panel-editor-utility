@@ -7,9 +7,9 @@ import subprocess
 from PyQt5.QtCore import QCoreApplication
 import tempfile
 
-def refresh_theme():
-    subprocess.run(['cinnamon', '--replace'])
-    QCoreApplication.quit()
+# def refresh_theme():
+#     subprocess.run(['cinnamon', '--replace'])
+#     QCoreApplication.quit()
 
 class ColorPicker(QWidget):
     def __init__(self):
@@ -21,8 +21,7 @@ class ColorPicker(QWidget):
         from PyQt5.QtGui import QIcon
 
         self.setWindowTitle('linux-mint-panel-customizer')
-        self.setWindowIcon(QIcon('/linux-mint-panel-customizer/user/share/icons/panel-customizer.png')) 
-        self.setWindowTitle('linux-mint-panel-customizer')
+        self.setWindowIcon(QIcon('/linux-mint-panel-customizer/usr/share/icons/panel-customizer.png')) 
         self.layout = QVBoxLayout()
         self.setLayout(self.layout)
 
@@ -121,7 +120,7 @@ class ColorPicker(QWidget):
                 if 'temp_file' in locals() and os.path.exists(temp_file.name):
                     os.remove(temp_file.name)
 
-        refresh_theme()
+        # refresh_theme()
 
 
 if __name__ == '__main__':
