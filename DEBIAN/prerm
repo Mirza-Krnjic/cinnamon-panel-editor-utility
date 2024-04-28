@@ -1,0 +1,3 @@
+#!/bin/bash
+# Optional cleanup commands
+echo "Removing your application."
