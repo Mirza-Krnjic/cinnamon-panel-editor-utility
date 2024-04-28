@@ -59,31 +59,61 @@ class ColorPicker(QWidget):
             return None
 
     def update_css_file(self, panel, color):
+        print("this is the text that the function gets: ", panel)
+        print("refactored: ", 'panel-'+panel)
+
         css_path = self.get_current_theme_css_path()
         if css_path:
             try:
                 with open(css_path, 'r') as file:
                     css_content = file.read()
-                    pattern = re.compile(r'(\.' + re.escape(panel) + r'\s*\{\s*[^}]*\})')
-                    css_class = pattern.search(css_content).group(1)
-                    updated_css_class = re.sub(r'(background-color:.*?;)', '', css_class)
-                    updated_css_class += f'  background-color: {color} !important;'
-                    updated_css_content = pattern.sub(updated_css_class, css_content)
 
-                # Create a temporary file with the updated CSS content
-                temp_file = tempfile.NamedTemporaryFile(delete=False)
-                with open(temp_file.name, 'w') as f:
-                    f.write(updated_css_content)
 
-                # Use pkexec to move the temporary file to the original location
-                cmd = ['pkexec', 'mv', temp_file.name, css_path]
-                subprocess.run(cmd)
+                # pattern = re.compile(
+                #     r'(\.' + re.escape(panel) + r'(?:\s|\{)[^}]*\})',
+                #     re.DOTALL
+                #     )
+                pattern = re.compile(
+                    r'(\.' + re.escape('panel-'+panel) + r'\b\s*\{[^}]*\})',
+                    re.DOTALL
+                    )
+
+                css_class_match = pattern.search(css_content)
+                if css_class_match:
+                    css_class = css_class_match.group(1)
+                    
+                    # Check if 'background-color' property exists
+                    if 'background-color:' in css_class:
+                        updated_css_class = re.sub(
+                            r'background-color:\s*[^;]+;',
+                            f'background-color: {color} !important;',
+                            css_class
+                        )
+                    else:
+                        # Append 'background-color' if it doesn't exist
+                        updated_css_class = css_class.rstrip('}') + f'  background-color: {color} !important;\n}}'
+
+                    updated_css_content = css_content.replace(css_class, updated_css_class)
+
+                    # Create a temporary file with the updated CSS content
+                    with tempfile.NamedTemporaryFile(delete=False, mode='w') as temp_file:
+                        temp_file.write(updated_css_content)
+
+                    # Use pkexec to move the temporary file to the original location
+                    cmd = ['pkexec', 'mv', temp_file.name, css_path]
+                    subprocess.run(cmd, check=True)
+                else:
+                    print(f"No CSS class found for {panel}")
 
             except Exception as e:
                 print(f"Failed to update CSS file for {panel} panel: {e}")
                 if 'temp_file' in locals():
                     os.remove(temp_file.name)  # Clean up the temporary file
-    
+            finally:
+                # Ensure the temporary file is cleaned up if it exists
+                if 'temp_file' in locals() and os.path.exists(temp_file.name):
+                    os.remove(temp_file.name)
+
 
 if __name__ == '__main__':
     import sys
