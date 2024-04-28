@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=linux-mint-panel-customizer
+Comment=Pick colors for Linux Mint panel
+Exec=/usr/bin/linux-mint-panel-customizer
+Icon=/usr/share/icons/panel-customizer.png
+Terminal=false
+Type=Application
+Categories=Utility;

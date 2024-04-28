@@ -4,15 +4,25 @@ import subprocess
 import os
 import re
 import subprocess
+from PyQt5.QtCore import QCoreApplication
 import tempfile
+
+def refresh_theme():
+    subprocess.run(['cinnamon', '--replace'])
+    QCoreApplication.quit()
 
 class ColorPicker(QWidget):
     def __init__(self):
         super().__init__()
+        self.resize(300, 200)
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle('Color Picker')
+        from PyQt5.QtGui import QIcon
+
+        self.setWindowTitle('linux-mint-panel-customizer')
+        self.setWindowIcon(QIcon('/linux-mint-panel-customizer/user/share/icons/panel-customizer.png')) 
+        self.setWindowTitle('linux-mint-panel-customizer')
         self.layout = QVBoxLayout()
         self.setLayout(self.layout)
 
@@ -58,6 +68,7 @@ class ColorPicker(QWidget):
             print(f"Failed to determine current theme: {e}")
             return None
 
+
     def update_css_file(self, panel, color):
         print("this is the text that the function gets: ", panel)
         print("refactored: ", 'panel-'+panel)
@@ -69,10 +80,6 @@ class ColorPicker(QWidget):
                     css_content = file.read()
 
 
-                # pattern = re.compile(
-                #     r'(\.' + re.escape(panel) + r'(?:\s|\{)[^}]*\})',
-                #     re.DOTALL
-                #     )
                 pattern = re.compile(
                     r'(\.' + re.escape('panel-'+panel) + r'\b\s*\{[^}]*\})',
                     re.DOTALL
@@ -114,10 +121,12 @@ class ColorPicker(QWidget):
                 if 'temp_file' in locals() and os.path.exists(temp_file.name):
                     os.remove(temp_file.name)
 
+        refresh_theme()
+
 
 if __name__ == '__main__':
     import sys
     app = QApplication(sys.argv)
     picker = ColorPicker()
     picker.show()
-    sys.exit(app.exec_())
+    app.exec_()
