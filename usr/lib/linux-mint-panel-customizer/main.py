@@ -7,9 +7,6 @@ import subprocess
 from PyQt5.QtCore import QCoreApplication
 import tempfile
 
-# def refresh_theme():
-#     subprocess.run(['cinnamon', '--replace'])
-#     QCoreApplication.quit()
 
 class ColorPicker(QWidget):
     def __init__(self):
@@ -120,7 +117,6 @@ class ColorPicker(QWidget):
                 if 'temp_file' in locals() and os.path.exists(temp_file.name):
                     os.remove(temp_file.name)
 
-        # refresh_theme()
 
 
 if __name__ == '__main__':
