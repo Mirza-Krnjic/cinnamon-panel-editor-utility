@@ -3,6 +3,8 @@ from PyQt5.QtGui import QColor
 import subprocess
 import os
 import re
+import subprocess
+import tempfile
 
 class ColorPicker(QWidget):
     def __init__(self):
@@ -60,18 +62,28 @@ class ColorPicker(QWidget):
         css_path = self.get_current_theme_css_path()
         if css_path:
             try:
-                with open(css_path, 'r+') as file:
+                with open(css_path, 'r') as file:
                     css_content = file.read()
                     pattern = re.compile(r'(\.' + re.escape(panel) + r'\s*\{\s*[^}]*\})')
                     css_class = pattern.search(css_content).group(1)
                     updated_css_class = re.sub(r'(background-color:.*?;)', '', css_class)
                     updated_css_class += f'  background-color: {color} !important;'
                     updated_css_content = pattern.sub(updated_css_class, css_content)
-                    file.seek(0)
-                    file.write(updated_css_content)
-                    file.truncate()
+
+                # Create a temporary file with the updated CSS content
+                temp_file = tempfile.NamedTemporaryFile(delete=False)
+                with open(temp_file.name, 'w') as f:
+                    f.write(updated_css_content)
+
+                # Use pkexec to move the temporary file to the original location
+                cmd = ['pkexec', 'mv', temp_file.name, css_path]
+                subprocess.run(cmd)
+
             except Exception as e:
                 print(f"Failed to update CSS file for {panel} panel: {e}")
+                if 'temp_file' in locals():
+                    os.remove(temp_file.name)  # Clean up the temporary file
+    
 
 if __name__ == '__main__':
     import sys
