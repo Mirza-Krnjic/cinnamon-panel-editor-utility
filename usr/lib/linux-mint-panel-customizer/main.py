@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QColorDialog
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QColorDialog, QMessageBox
 from PyQt5.QtGui import QColor
 import subprocess
 import os
@@ -105,6 +105,9 @@ class ColorPicker(QWidget):
                     # Use pkexec to move the temporary file to the original location
                     cmd = ['pkexec', 'mv', temp_file.name, css_path]
                     subprocess.run(cmd, check=True)
+
+                    QMessageBox.information(self, "Restart Required", 
+                        "Please restart your computer or switch themes to apply the new panel color. Click OK to dismiss this message.")
                 else:
                     print(f"No CSS class found for {panel}")
 
