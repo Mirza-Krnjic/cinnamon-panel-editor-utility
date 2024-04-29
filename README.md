@@ -12,13 +12,31 @@ For such cases, the authors (or users) of the theme may override the panel color
 
 #### Installation
 
+1. Download the _.deb_ and run/install the package.
+
+2. Build from source
+
+```terminal
+git clone https://github.com/Mirza-Krnjic/cinnamon-panel-editor.git
+```
+
+Install the necessary dependencies. On a Debian-based system, this can be done with:
+
+```terminal
+sudo apt-get install python3 python3-pyqt5 libpolkit-gobject-1-0
+```
+
+```terminal
+dpkg-deb --build .
+```
+
 #### Contributing
 
 Contributions are welcome, also in form of translations. Please, submit pull requests to the repository.
 
 #### License
 
-This extension is free software and it's licensed under GPL3. You should have received an unobfuscated copy of the source code. If you don't, you can get it on https://github.com/mirza-krnjic/cinnamon-panel-editor
+This extension is free software and it's licensed under GPL3. You should have received an unobfuscated copy of the source code. If you don't, you can get it on https://github.com/Mirza-Krnjic/cinnamon-panel-editor
 
 ```markdown
 Cinnamon Panel Editor - Cinnamon desktop extension
