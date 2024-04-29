@@ -18,7 +18,7 @@ class ColorPicker(QWidget):
         from PyQt5.QtGui import QIcon
 
         self.setWindowTitle('Cinnamon Panel Editor')
-        self.setWindowIcon(QIcon('/cinnamon-panel-editor/usr/share/icons/panel-customizer.png')) 
+        self.setWindowIcon(QIcon('/cinnamon-panel-editor/usr/share/icons/cinnamon-panel-editor-icon.png')) 
         self.layout = QVBoxLayout()
         self.setLayout(self.layout)
 
