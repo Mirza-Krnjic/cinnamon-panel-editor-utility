@@ -1,4 +1,4 @@
-# Cinnamon Panel Editor
+# Cinnamon Panel Editor Utility
 
 <img src="/usr/share/icons/cinnamon-panel-editor-icon.png" alt="Cinnamon Panel Editor Icon" width="100" height="100">
 
