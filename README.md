@@ -2,7 +2,7 @@
 
 <img src="/usr/share/icons/cinnamon-panel-editor-icon.png" alt="Cinnamon Panel Editor Icon" width="100" height="100">
 
-Cinnamon Panel Editor enables you to easily adjust and refine the color and transparency of the panels on your Linux Cinnamon desktop environment.
+The Cinnamon Panel Editor Utility enables you to easily adjust and refine the color and transparency of the panels on your Linux Cinnamon desktop environment.
 
 #### Supported Themes
 
@@ -17,7 +17,7 @@ For such cases, the authors (or users) of the theme may override the panel color
 2. Build from source
 
 ```terminal
-git clone https://github.com/Mirza-Krnjic/cinnamon-panel-editor.git
+git clone https://github.com/Mirza-Krnjic/cinnamon-panel-editor-utility.git
 ```
 
 Install the necessary dependencies. On a Debian-based system, this can be done with:
@@ -36,7 +36,7 @@ Contributions are welcome, also in form of translations. Please, submit pull req
 
 #### License
 
-This extension is free software and it's licensed under GPL3. You should have received an unobfuscated copy of the source code. If you don't, you can get it on https://github.com/Mirza-Krnjic/cinnamon-panel-editor
+This extension is free software and it's licensed under GPL3. You should have received an unobfuscated copy of the source code. If you don't, you can get it on https://github.com/Mirza-Krnjic/cinnamon-panel-editor-utility
 
 ```markdown
 Cinnamon Panel Editor - Cinnamon desktop extension
