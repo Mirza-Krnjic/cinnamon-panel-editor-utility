@@ -1,0 +1,3 @@
+#!/bin/bash
+# Set permissions for the script
+chmod +x /usr/bin/modify_cinnamon_css.sh

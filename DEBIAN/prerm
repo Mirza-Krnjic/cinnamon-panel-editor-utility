@@ -1,0 +1,16 @@
+#!/bin/bash
+# Optional cleanup commands
+echo "Removing your application."
+
+# Remove the application binary
+rm -f /usr/bin/cinnamon-panel-editor
+rm -f /usr/bin/modify_cinnamon_css.sh
+
+# Remove the application library
+rm -rf /usr/lib/cinnamon-panel-editor
+
+# Remove the application icons and desktop files
+rm -rf /usr/share/icons/cinnamon-panel-editor-icon.png
+rm -rf /usr/share/applications/cinnamon-panel-editor.desktop
+
+echo "Your application has been removed."
