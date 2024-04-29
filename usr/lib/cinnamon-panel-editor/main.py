@@ -11,7 +11,7 @@ import tempfile
 class ColorPicker(QWidget):
     def __init__(self):
         super().__init__()
-        self.resize(300, 200)
+        self.resize(400, 400)
         self.initUI()
 
     def initUI(self):

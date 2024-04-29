@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=Cinnamon Panel Editor
-Comment=Pick colors for Linux Mint panel
+Comment=Edit Linux panels on Cinnamon desktop
 Exec=/usr/bin/cinnamon-panel-editor
 Icon=/usr/share/icons/cinnamon-panel-editor-icon.png
 Terminal=false
