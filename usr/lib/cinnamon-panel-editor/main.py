@@ -4,7 +4,6 @@ import subprocess
 import os
 import re
 import subprocess
-from PyQt5.QtCore import QCoreApplication
 import tempfile
 
 
