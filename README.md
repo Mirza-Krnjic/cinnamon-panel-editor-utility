@@ -12,7 +12,7 @@ For such cases, the authors (or users) of the theme may override the panel color
 
 #### Installation
 
-1. Download the _.deb_ and run/install the package.
+1. Download the _cinnamon-panel-editor_1.0_all.deb_ and run/install the package.
 
 2. Build from source
 
