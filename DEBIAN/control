@@ -1,4 +1,4 @@
-Package: linux-mint-panel-customizer
+Package: cinnamon-panel-editor
 Version: 1.0
 Section: base
 Priority: optional

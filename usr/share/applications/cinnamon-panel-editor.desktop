@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
-Name=linux-mint-panel-customizer
+Name=Cinnamon Panel Editor
 Comment=Pick colors for Linux Mint panel
-Exec=/usr/bin/linux-mint-panel-customizer
+Exec=/usr/bin/cinnamon-panel-editor
 Icon=/usr/share/icons/panel-customizer.png
 Terminal=false
 Type=Application

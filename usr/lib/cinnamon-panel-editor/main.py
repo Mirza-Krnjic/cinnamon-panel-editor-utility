@@ -17,8 +17,8 @@ class ColorPicker(QWidget):
     def initUI(self):
         from PyQt5.QtGui import QIcon
 
-        self.setWindowTitle('linux-mint-panel-customizer')
-        self.setWindowIcon(QIcon('/linux-mint-panel-customizer/usr/share/icons/panel-customizer.png')) 
+        self.setWindowTitle('Cinnamon Panel Editor')
+        self.setWindowIcon(QIcon('/cinnamon-panel-editor/usr/share/icons/panel-customizer.png')) 
         self.layout = QVBoxLayout()
         self.setLayout(self.layout)
 
